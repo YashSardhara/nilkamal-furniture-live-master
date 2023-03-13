@@ -120,7 +120,7 @@ button&#34;
 	 border-color: #e1e1e1;
 }
  .product-quantity-box {
-	 width: 5em;
+	 width: 204px;
 	 max-width: 100%;
 	 height: 46px;
 	 border: 1px solid #bfbfbf;
@@ -4319,6 +4319,9 @@ submit&#39;
 		 margin: 40px 0 0;
 	}
 }
+.gaming-chair-border{
+	border-bottom:1px solid #ffffff4d;
+  }
 /* product page zoom image */
  .product-image-column .gallery-wrap {
 	 position: relative;
@@ -5497,7 +5500,7 @@ color: #0093DD;
 }
 
 .form-check-label{
-
+  
 }
 
 input.btn.btn-Send{
@@ -5798,7 +5801,7 @@ input:not(:focus):valid ~ .floating-label {
   opacity: 1;
   color: #023E88;
   background:#fff;
-  height: 20px;
+  height: 20px; 
   padding-inline: 10px;
 }
 
@@ -5851,7 +5854,7 @@ align-items:center;
 
 .hide {
   opacity:0;
-
+ 
 }
 .show {
   opacity:1;
@@ -6030,7 +6033,7 @@ color: #FFFFFF;
   .about .about__desc p{
     font-size:16px;
   }
-
+  
   .custom_heading{
     font-size:28px !important;
   }

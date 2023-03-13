@@ -1,3 +1,11 @@
+<style>
+  .new__badge__link__mobile {
+    position: absolute !important;
+    top: 0px;
+    left: 115px;
+    width: fit-content;
+}
+</style>
 {% for link in linklists[mobile-menu].links %}
   {% if linklists[link.handle] == empty %}
     <li data-mobile-dropdown-rel="{{ link.handle }}">
@@ -25,7 +33,7 @@
       <ul>
         {% for link in linklists[link.handle].links %}
           {% if linklists[link.handle] == empty %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            <li><a class="{{ link.title }}__mobile__menu" href="{{ link.url }}">{{ link.title }}</a></li>
           {% else %}
             <li class="sublink">
               {% if link.url == 'http://' or link.url == '' or link.url == '/' or link.url == 'https://' or link.url == '#' %}
@@ -39,7 +47,7 @@
               {% endif %}
               <ul>
                 {% for link in linklists[link.handle].links %}
-                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  <li><a  href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
               </ul>
             </li>
@@ -51,3 +59,15 @@
   {% endif %}
 
 {% endfor %}
+<li class="custom__gamig_mobile">
+  <a href="/collections/fyrebird-gaming-chairs">Gaming Chairs</a>
+  <span class="blink_me">NEW</span>
+</li>
+
+<script>
+  $(document).ready(function () {
+
+  $('.Chairs__mobile__menu').append("<div class='new_badge_blink new__badge__link__mobile'><div class='blink_me_2 blink_me '>NEW</div></div>");
+
+  });
+</script>

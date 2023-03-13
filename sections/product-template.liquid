@@ -49,13 +49,13 @@
             <a href="{{ collection.previous_product }}" title="{{ 'products.general.previous_product_html' | t }}" class="breadcrumb_link"><span class="icon-left-arrow"> {{ 'products.general.previous_product_html' | t }}</span></a>
             {% endif %}
             {% if collection.previous_product and collection.next_product %}<span class="breadcrumb-divider"> | </span>{% endif %}
-
+            
             {% if collection.next_product %}
             <a href="{{collection.next_product}}" title="{{ 'products.general.next_product_html' | t }}" class="breadcrumb_link">{{ 'products.general.next_product_html' | t }} <span class="icon-right-arrow"></span></a>
             {% endif %}
           </div>
           {% endif %}
-
+          
           {% if section.settings.product_breadcrumb %}
           <div class="breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
             <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -90,15 +90,15 @@
         </div>
         {% endif %}
       </div>
-
-
+      
+      
       {% comment %}Check to see if sidebar should be enabled{% endcomment %}
       {% if section.blocks.size > 0 %}
       {% assign sidebar = true %}
       {% else %}
       {% assign sidebar = false %}
       {% endif %}
-
+      
       <div class="product clearfix">
         {% if sidebar %}
         {% include 'sidebar' %}
@@ -137,9 +137,9 @@
 							</div>
                 <div class="v-stick-bk-pro-info-wrap vertical-spacing-fixe">&#8377;{{ product.price | money | remove: '.00' }}</div>
 							<div class="v-stick-atc-bn-btn-wrap">
-
-
-                                                  <div class="purchase-details__buttons">
+							
+                              
+                                                  <div class="purchase-details__buttons"> 
   {% if product.available %}
   {% if settings.cart_action == 'reload_page' %}
   <input type="hidden" name="return_to" value="back" />
@@ -155,27 +155,27 @@
       <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
     </svg>
   </button>
-
-  <button type="button" name="add" class="action_button custom_cart_action_button" onclick="return addTOcartDisable1();" data-label="Add to Cart"> <span class="text">Add to Cart</span> <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path></svg></button>
-  <button type="button" class="custom_payment__button" onclick="return addTOcartDisable1();">Buy it now</button>
+           
+  <button type="button" name="add" class="action_button custom_cart_action_button" onclick="return addTOcartDisable1();" data-label="Add to Cart"> <span class="text">Add to Cart</span> <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path></svg></button>                          
+  <button type="button" class="custom_payment__button" onclick="return addTOcartDisable1();">Buy it now</button>               
   {{ form | payment_button }}
-
+   
  {%- endif -%}
 
   {% else %}
-  <button type="button" name="add" class="action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }} disabled
+  <button type="button" name="add" class="action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }} disabled 
           style="width: 100%;background: gray;border-color: gray;font-size: 18px !important;line-height: 1.5;">
     <span class="text">Sold out</span>
     <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
       <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
     </svg>
   </button>
-
+                            
   {% endif %}
 </div>
                 </div>
-
-
+                          
+                            
 						</div>
 					</div>
 				</div>
@@ -185,15 +185,15 @@
               data-free-text="{{ settings.free_price_text }}"
               >
               <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
-
+                
                 <div class="product-image-column {% if sidebar %}six{% else %}six{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
                   {% include 'product-images' %}
                 </div>
-
+                
                 <div class="{% if sidebar %}five{% else %}seven{% endif %} columns {% if section.settings.product_images_position == 'left' %}omega{% else %}alpha{% endif %}">
                   {% assign collection_handles = product.collections | map: 'handle' %}
                   {% assign variant = product.selected_or_first_available_variant %}
-
+                  
                   {% if product.available %}
                   {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
                   <div class="sale_banner_product">{{ 'collections.general.sale' | t }}</div>
@@ -205,13 +205,13 @@
                   {% if collection_handles contains 'pre-order' %}
                   <div class="preorder_banner_product">{{ 'collections.general.pre_order' | t }}</div>
                   {% endif %}
-
+                  
                   {% if section.settings.display_vendor %}
                   <p class="vendor">
                     <span itemprop="brand" class="vendor">{{ product.vendor | link_to_vendor }}</span>
                   </p>
                   {% endif %}
-
+                  
                   {% if variant.sku != blank and section.settings.display_sku %}
                   <p class="sku">
                     <span itemprop="sku">{{ variant.sku }}</span>
@@ -222,8 +222,8 @@
                     {% comment %}
                     <a href="" class="wishlist-btn">{% include 'svg-icons', id:'heart' %}</a>
                     {% endcomment %}
-
-                  </h1>
+                    
+                  </h1>                    
                  {% comment %} {% unless customer %}<p class="iWishLoginMsg" style="display: none;">Your wishlist has been temporarily saved. Please <a href="/account/login">Log in</a> to save it permanently.</p>{% endunless %}
                   {% if section.settings.enable_shopify_product_badges and settings.enable_shopify_review_comments %}
                   <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
@@ -245,8 +245,8 @@
                   {% elsif settings.size_chart != blank %}
                   <a href="#size-chart" class="size_chart" data-remodal-target="size-chart" data-no-instant>{{ 'products.product.size_chart' | t }} <span class="icon-right-arrow"></span></a>
                   {% endif %}
-
-                  <div class="main-colmn">
+                  
+                  <div class="main-colmn {% if product.tags contains 'Gaming Chair' %} gaming-chair-border {% endif %}">
                     {% if product.available == false %}
                 <p class="new-sold-out">Sold out</p>
                   {% endif %}
@@ -265,7 +265,7 @@
                         <div class="col-sm-5 left-price">
                         <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale Price</span>
                           <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
-
+                        
                         <p><span class="current_price totalpricequantity">
                               {% if variant.price > 0 %}
                               <span class="sale totalpricequantity">&#8377; {{ variant.price | money_without_currency | remove: '.00'}}</span>
@@ -282,15 +282,15 @@
                            <span class="money">{{ variant.compare_at_price | money }}</span>
                           </span><br>
                           {% endif %}
-
+                        
                          <span class="priceimgg"><svg width="11" height="10" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M10.5 0C4.98 0 0.5 4.48 0.5 10C0.5 15.52 4.98 20 10.5 20C16.02 20 20.5 15.52 20.5 10C20.5 4.48 16.02 0 10.5 0ZM11.5 15H9.5V9H11.5V15ZM11.5 7H9.5V5H11.5V7Z" fill="#87BEDA"/>
 </svg>
 </span>
-
+                        
                           <span class="priceimghover">Get upto 60% off</span>
-
-
+              
+                          
 </div>
                         {% if section.settings.display_savings %}
                           {% if variant.price < variant.compare_at_price %}
@@ -301,15 +301,15 @@
                           {% endif %}
                           {% endif %}
                   </div>
-
+                       
                         {% else %}
-
-
+                       
+                     
                         <div class="price-info new-price">
                         <div class="col-sm-5 left-price">
                         <span class="sale-text {% if product.available == false %}hidden{% endif %}">Sale Price</span>
                           <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
-
+                           
                         <p><span class="current_price totalpricequantity">
                               {% if variant.price > 0 %}
                               <span class="sale totalpricequantity">&#8377; {{ variant.price | money_without_currency | remove: '.00'}}</span>
@@ -330,9 +330,9 @@
 <path d="M10.5 0C4.98 0 0.5 4.48 0.5 10C0.5 15.52 4.98 20 10.5 20C16.02 20 20.5 15.52 20.5 10C20.5 4.48 16.02 0 10.5 0ZM11.5 15H9.5V9H11.5V15ZM11.5 7H9.5V5H11.5V7Z" fill="#87BEDA"/>
 </svg>
 </span>
-
+                          
                                <span class="priceimghover">Get upto 60% off</span>
-
+               
 </div>
                         {% if section.settings.display_savings %}
                           {% if variant.price < variant.compare_at_price %}
@@ -340,10 +340,10 @@
                              You Save &nbsp; <span class="fffsfs">&#8377;{{ variant.compare_at_price | minus: variant.price | money | remove: '.00'}} </span> &nbsp; (<span class="fffsfs">{{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}% Off</span>)
                              </span>
 
-
+                          
                           {% endif %}
                           {% endif %}
-
+                         
                   </div>
                         {% endif %}
 
@@ -360,7 +360,7 @@
                         {% endcomment %}
                       </div>
                       {% endif %}
-
+                      
                       {% comment %}
                       {% if product.handle contains 'nilkamal-flora-bonnell-spring-mattress' or product.handle contains 'nilkamal-flora-bonnell-spring-mattress' or product.handle contains 'nilkamal-well-bond-foam-mattress' or product.handle contains 'nilkamal-sofi-memory-soft-and-bonded-foam-mattress' or product.handle contains 'nilkamal-vibrant-box-top-pocket-spring-mattress' or product.handle contains 'nilkamal-blue-sky-foam-mattress' or product.handle contains 'nilkamal-stanfield-6-seater-dining-table-grey' or product.handle contains 'nilkamal-pure-foam-mattress' or product.handle contains 'nilkamal-amazzze-foam-mattress' or product.handle contains 'nilkamal-auxton-2-seater-fabric-sofa-brown' or product.handle contains 'nilkamal-cushy-foam-mattress' or product.handle contains 'nilkamal-comfa-foam-mattress' or product.handle contains 'nilkamal-arkansas-1-seater-fabric-sofa-dark-olive' or product.handle contains 'nilkamal-reed-1-seater-sofa-black' or product.handle contains 'nilkamal-reed-2-seater-sofa-black' or product.handle contains 'nilkamal-reed-3-seater-sofa-black'  %}
                       <p class="">Super Sale Price is inclusive of 10% Discount with code <b>SUPER10</b></p>
@@ -375,23 +375,23 @@
                       </div>
                       {% endif %}
                       {% endif %}
-
-
+                      
+                      
                       {% if product.options.size > 1 %}
                     {% comment %}  <div class="select product-variant-dropdown customlt">
                         <label>{{ product.options[0] }}</label>
-
+                       
                         <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
                           {% for v in product.variants %}
                           <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
                         </select>
-
+                         
                       </div>
  {% endcomment %}
-
+                        
                       {% elsif product.options.size == 1 and product.variants.size > 1 or product.options.size == 1 and product.options[0] != "Title" %}
-
+                      
                       {% comment %} <div class="select product-variant-dropdown customlt">
                         <label>{{ product.options[0] }}</label>
                         <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
@@ -399,40 +399,40 @@
                           <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
                         </select>
-                      </div>    {% endcomment %}
+                      </div>    {% endcomment %}   
                       {% else %}
-                    {% comment %}   <input type="hidden" name="id" value="{{ variant.id }}" /> {% endcomment %}
+                    {% comment %}   <input type="hidden" name="id" value="{{ variant.id }}" /> {% endcomment %} 
                       {% endif %}
-
-
-
-
-                     {% comment %}
+                      
+                      
+                      
+                      
+                     {% comment %}  
                      {% for option in product.options %}
             {% if product.available and product.variants.size >= 1 and option == 'Color' %}
                  {% include 'swatch' with 'Color' as swatch %}
-
+                      
                       {% elsif product.available and product.variants.size >= 1 and option == 'Size' %}
                       <div class="select product-variant-dropdown">
                      <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select multi_select_new" style="display:none!imprtant">
                           {% for v in product.variants %}
                           <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
-                        </select>
+                        </select> 
                       </div>
                       {% else %}
                       <input type="hidden" name="id" value="{{ variant.id }}" />
             {% endif %}
-           {% endfor %}
-                     {% endcomment %}
-
+           {% endfor %}  
+                     {% endcomment %} 
+                    
 <div class="mobile_socialmedia">
     <div class="wish_mobile">
         {% include 'iwish_v2' with 'iwishproduct' %} <span class="wish_mob_txt">Add to Wishlist</span>
     </div>
     <div class="wish_mobile_share">
         <span class="share_mob" id="shareBtn">
-
+        
         {% render 'share_svg' %} </span> <span class="share_mob_txt">Share</span>
     </div>
 </div>
@@ -464,17 +464,17 @@ document.querySelector('#shareBtn')
         });
     } else {
 
-        // Alerts user if API not available
+        // Alerts user if API not available 
         alert("Browser doesn't support this API !");
     }
 })
-</script>
-
-
-
+</script>                      
+                      
+                      
+                     
                        {% for option in product.options %}
             {% if product.available and product.variants.size >= 1 and option == 'Color' %}
-
+              
               <div class="select product-variant-dropdown customlt">
                         <label>{{ product.options[0] }}</label>
                         <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
@@ -483,9 +483,9 @@ document.querySelector('#shareBtn')
                           {% endfor %}
                         </select>
                       </div>
-
+              
                  {% include 'swatch' with 'Color' as swatch %}
-
+                      
                       {% elsif product.available and product.variants.size >= 1 and option == 'Size' %}
                     <div class="select product-variant-dropdown">
                         <label>{{ product.options[0] }}</label>
@@ -493,31 +493,31 @@ document.querySelector('#shareBtn')
                           {% for v in product.variants %}
                           <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
-                        </select>
+                        </select> 
                       </div>
               {% elsif product.available and product.variants.size == 1 and option != 'Color' and option != 'Size' %}
-              <input type="hidden" name="id" value="{{ variant.id }}" />
+              <input type="hidden" name="id" value="{{ variant.id }}" /> 
                       {% else %}
-
+                     
             {% endif %}
-           {% endfor %}
-
-
-
-                    {% comment %}
+           {% endfor %}  
+                  
+                      
+                      
+                    {% comment %}   		  
              {% if product.options.size > 1 %}
                       <div class="select product-variant-dropdown customlt">
                         <label>{{ product.options[0] }}</label>
-
+                       
                         <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
                           {% for v in product.variants %}
                           <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
                         </select>
-
+                         
                       </div>
                       {% elsif product.options.size == 1 and product.variants.size > 1 or product.options.size == 1 and product.options[0] != "Title" %}
-
+                      
                       <div class="select product-variant-dropdown customlt">
                         <label>{{ product.options[0] }}</label>
                         <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
@@ -526,14 +526,14 @@ document.querySelector('#shareBtn')
                           {% endfor %}
                         </select>
                       </div>
-
-
-
+                  
+				  
+				  
 				   {% elsif product.variants.size > 1 %}
 					   {% for option in product.options %}
             {% if product.available and product.variants.size >= 1 and option == 'Color' %}
                  {% include 'swatch' with 'Color' as swatch %}
-
+                      
                       {% elsif product.available and product.variants.size >= 1 and option == 'Size' %}
                     <div class="select product-variant-dropdown">
                         <label>{{ product.options[0] }}</label>
@@ -541,7 +541,7 @@ document.querySelector('#shareBtn')
                           {% for v in product.variants %}
                           <option {% if v == variant %}selected="selected"{% endif %} data-price='{{ v.price | money }}' data-comparePrice='{{ v.compare_at_price | money }}' data-available="{{ v.available }}" value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
                           {% endfor %}
-                        </select>
+                        </select> 
                       </div>
                       {% else %}
                       <input type="hidden" name="id" value="{{ variant.id }}" />
@@ -550,16 +550,16 @@ document.querySelector('#shareBtn')
 		       	  {% else %}
                       <input type="hidden" name="id" value="{{ variant.id }}" />
                       {% endif %}
-                     {% endcomment %}
-
-
-
+                     {% endcomment %} 
+                      
+                      
+                        
                       <div class="product-pay-swatch vl-ly">
                         {% unless collection_handles contains 'coming-soon' %}
                            {% include 'product-form-1' with 'product' %}
                         {% endunless %}
                       </div>
-
+                       
                       <div class="form-box">
                         <div class="new-quantity-pincode">
                         <div class="col-sm-6">
@@ -570,31 +570,31 @@ document.querySelector('#shareBtn')
                             {% if settings.display_product_quantity %}
                             <label for="quantity">QTY</label>
                             <div class="purchase-details__quantity test product-quantity-box">
-
+                              
                               <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
-                              {% if product.tags contains 'Plastic Chairs' %}
+                              {% if product.tags contains 'Plastic Chairs' %} 
                                <span class="min4qty" id="minqtyvalue" style="display:none">4</span>
                               <input type="number" min="4" size="2" class="quantity" name="quantity" id="quantity" value="4"
                               {% if settings.limit_quantity and variant.inventory_management != blank and variant.inventory_policy == "deny" %}max="{{ variant.inventory_quantity }}"
                               {% endif %} />
-
-                              {% elsif product.tags contains 'Min Quantity Two' %}
+                               
+                              {% elsif product.tags contains 'Min Quantity Two' %} 
                               <span class="min4qty" id="minqtyvalue" style="display:none">2</span>
                               <input type="number" min="2" size="2" class="quantity" name="quantity" id="quantity" value="2"
                               {% if settings.limit_quantity and variant.inventory_management != blank and variant.inventory_policy == "deny" %}max="{{ variant.inventory_quantity }}"
                               {% endif %} />
-
+                              
                               {% else %}
                               <span class="min4qty" id="minqtyvalue" style="display:none">0</span>
                               <input type="number" min="1" size="2" class="quantity" name="quantity" id="quantity" value="1"
                               {% if settings.limit_quantity and variant.inventory_management != blank and variant.inventory_policy == "deny" %}max="{{ variant.inventory_quantity }}"
                               {% endif %} />
-
+                              
                               {% endif %}
                               <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
                             </div>
                             {% endif %}
-
+                
                 {% if product.tags contains 'Plastic Chairs' %}
                             <span class="qtity-text">Min. Qty <b>4</b> </span>
                           {% elsif product.tags contains 'Min Quantity Two' %}
@@ -602,20 +602,21 @@ document.querySelector('#shareBtn')
                             {% endif %}
                           </div>
                {% comment  %} <div class="total_price mob"></div> {% endcomment %}
-
+                          
                         </div>
-
+                  
 </div>
-
+             
                 {% comment  %} <div class="total_price desc"></div> {% endcomment %}
-
-
+                
+                
                <div id="razorpay-affordability-widget"> </div>
-
-
-                          <div class="purchase-details__buttons">
-                {% include 'iwish_v2' with 'iwishproduct' %}
-
+               <div id="w369-widget-control"></div>
+               <p class="offer">Cashback of 10% upto Rs.1000 on Axio pay later</p>
+               
+                          <div class="purchase-details__buttons"> 
+                {% include 'iwish_v2' with 'iwishproduct' %}  
+ 
   {% if settings.cart_action == 'reload_page' %}
   <input type="hidden" name="return_to" value="back" />
   {% elsif settings.cart_action == 'redirect_checkout' %}
@@ -624,7 +625,7 @@ document.querySelector('#shareBtn')
 
   {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
     <div class="price-info new-price footer_fix">
-
+                   
                         <span class="sale-text {% if product.available == false %}hidden{% endif %}"></span>
                           <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %} footer_fix">
                             <p><span class="sale savings">
@@ -638,7 +639,7 @@ document.querySelector('#shareBtn')
                               {% endif %}
                             </span></p>
                           </span>
-
+                           
                   </div>
  {%- if product.price > 0 -%}
    <button type="submit" onclick="obApi('track', 'Add to Cart');" name="add" class="shopify_button action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }}>
@@ -647,41 +648,41 @@ document.querySelector('#shareBtn')
       <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
     </svg>
   </button>
-
-
-  <button type="button" name="add" class="action_button custom_cart_action_button" onclick="return addTOcartDisable1();" data-label="Add to Cart"> <span class="text">Add to Cart</span> <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path></svg></button>
-  <button type="button" class="custom_payment__button" onclick="return addTOcartDisable1();">Buy it now</button>
+    
+                            
+  <button type="button" name="add" class="action_button custom_cart_action_button" onclick="return addTOcartDisable1();" data-label="Add to Cart"> <span class="text">Add to Cart</span> <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path></svg></button>                          
+  <button type="button" class="custom_payment__button" onclick="return addTOcartDisable1();">Buy it now</button>               
   {{ form | payment_button }}
    {%- endif -%}
-
-  <button type="button" name="add" class="action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }} disabled
+ 
+  <button type="button" name="add" class="action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}" data-label={{ add_to_cart_label | json }} disabled 
           style="width: 100%;background: gray;border-color: gray;font-size: 18px !important;line-height: 1.5;">
     <span class="text">Sold out</span>
     <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
       <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
     </svg>
   </button>
-
+                            
 
 </div>
 
-
-     {% comment %}
+                
+     {% comment %}               
         {% if product.variants[0].price > 50000 %}
             <div class="emi-box">
               <p class="emi-text">No cost EMI As low as <span>&#8377;{{ product.variants[0].price | divided_by: 6 | money_without_currency | split: '.' | first }}</span> Per Month. <span id="more-details">More Details</span></p>
               {% render 'emi-chart' %}
             </div>
-
+                     
             {% endif %}
-
-                        <div id="emi-instacred"></div>
+                
+                        <div id="emi-instacred"></div>                 
                         {% include 'zest-money-widget' %}
                      {% include 'hdfc-popup.liquid' %} {% endcomment %}
                       </div>
                     </div>
-
-                         {% endif %}
+                 
+                         {% endif %}  
                     <div class="right-colmn">
                       <div class="pdp customer-services">
                         <div class="container">
@@ -727,9 +728,9 @@ document.querySelector('#shareBtn')
                 <div>
                             {% include 'svg-icons', id:'easy_emi' %}
                 </div>
-                      <div>
+                      <div>     
                 <span>
-
+             
                               <span>Easy EMI <br />Options</span>
                 </div>
                               {% comment %}<a href="javascript:void(0);" class="">View Plan</a>{% endcomment %}
@@ -753,7 +754,7 @@ document.querySelector('#shareBtn')
                           </div>
                           {% assign free_asembly =  product.metafields.Product["Free Asembly Yes"] %}
                           {% if free_asembly == 'Yes' %}
-
+                            
                           <div class="item">
                             <div>
                             {% include 'svg-icons', id:'free_assembly' %}
@@ -768,10 +769,10 @@ document.querySelector('#shareBtn')
                           {% endif %}
                         </div>
                       </div>
-
-{% include "vertical-product-description-desktop" %}
-
-
+                  
+{% include "vertical-product-description-desktop" %}  
+                  
+           
                      {% if section.settings.display_collections or section.settings.display_tags or section.settings.display_type %}
                   <div class="product_links">
                     {% if section.settings.display_collections %}
@@ -784,21 +785,21 @@ document.querySelector('#shareBtn')
                       </span>
                     </p>
                     {% endif %}
-
+                    
                     {% if section.settings.display_type %}
                     <p>
                       <span class="label">{{ 'products.product.product_types' | t }}:</span>
                       <span>{{ product.type | link_to_type }}</span>
                     </p>
                     {% endif %}
-
+                    
                     {% if section.settings.display_tags %}
                     <p>
                       {% for tag in product.tags %}
                       {% if forloop.first %}
                       <span class="label">{{ 'products.product.tags' | t }}:</span>
                       {% endif %}
-
+                      
                       {% unless tag contains 'meta-' %}
                       <span>
                         <a href="/collections/{% if collection %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handle }}" title="{{ 'products.product.products_tagged' | t: tag: tag }}">{{ tag }}</a>{% unless forloop.last %},{% endunless %}
@@ -810,15 +811,15 @@ document.querySelector('#shareBtn')
                   </div>
                   {% endif %}
                  </div>
-
+                
 
 
 {% comment %}Start automatically added Judge.me widget{% endcomment %}
-
+ 
 {% comment %}End automatically added Judge.me widget{% endcomment %}
 </div>
-
-
+              
+ 
     {% comment %}   <div class="container more-info-tab">
              <ul class="tabs">
 <li><a class="active" href="#tab1">Tab 1</a></li>
@@ -836,17 +837,17 @@ document.querySelector('#shareBtn')
 <p>Tab 3 content goes here.</p>
 </li>
 </ul>
-              </div>{% endcomment %}
-
-
-
+              </div>{% endcomment %}  
+                
+        
+                
       <div class="container acontent">
                {% assign acontent_one =  product.metafields.Product["acontentone"] %}
             {%- if acontent_one != blank -%}<img src="{{acontent_one}}" alt="a content" class="product-description-pdp">
      {%- endif -%}
               {% assign acontent_two =  product.metafields.Product["acontenttwo"] %}
             {%- if acontent_two != blank -%}<img src="{{acontent_two}}" alt="a content" class="product-description-pdp">
-     {%- endif -%}
+     {%- endif -%} 
               {% assign acontent_three =  product.metafields.Product["acontentthree"] %}
             {%- if acontent_three != blank -%}<img src="{{acontent_three}}" alt="a content" class="product-description-pdp">
      {%- endif -%}
@@ -871,7 +872,7 @@ document.querySelector('#shareBtn')
                {% assign acontent_ten =  product.metafields.Product["acontentten"] %}
             {%- if acontent_ten != blank -%}<img src="{{acontent_ten}}" alt="a content" class="product-description-pdp">
      {%- endif -%}
-                </div>
+                </div> 
                 {% if product.handle contains 'nilkamal-ultrabliss-8-inch-smart-profile-foam-mattress' %}
                  <div class="visible-mobile">
       <div>
@@ -879,7 +880,7 @@ document.querySelector('#shareBtn')
       </div>
       <div class="col-sm-12 abover-spacing">
       <div class="row mobile-sting-health-row">
-
+     
       <div class="col-6 grounded-radiants">
      <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 518">
@@ -930,8 +931,8 @@ document.querySelector('#shareBtn')
       </div>
       <div class="col-6 sting-health-content">
        <h2>Luxurious Triple-Layer Smart Profile Foam</h2>
-       <p>Unwind on the ultra-luxurious layers of Ultra Soft Spring Foam, Pro Ecological Hybrid Ortho Foam and
-                  High-Density Medium-Soft Foam.
+       <p>Unwind on the ultra-luxurious layers of Ultra Soft Spring Foam, Pro Ecological Hybrid Ortho Foam and 
+                  High-Density Medium-Soft Foam. 
                   These layers provide the perfect balance of support and comfort to get your body relaxing. </p>
                 </div>
       </div>
@@ -971,17 +972,16 @@ document.querySelector('#shareBtn')
   </g>
 </svg>
       </div>
-
-
-
+     
+           
+     
       </div>
       </div>
   <div class="col-sm-12">
       <div class="row mobile-sting-health-row">
-
+      
       <div class="col-6 grounded-radiants">
     <?xml version="1.0" encoding="UTF-8"?>
-{% comment %}
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 518">
   <defs>
     <style>
@@ -1010,8 +1010,6 @@ document.querySelector('#shareBtn')
     <path class="cls-3" d="M233.45,328.01c-2.42-.99-3.1-2.13-3.09-4.69,.1-30.05,.07-60.1,.07-90.15,0-15.08,0-30.17,0-45.25,0-15.43,.06-30.85-.03-46.28-.04-7.51-7.18-12.41-14-9.79-4.5,1.73-6.6,5.26-6.6,11.2,0,59.87-.02,119.75,.06,179.62,0,2.86-.59,4.26-3.48,5.46-15.38,6.4-23.6,22.39-20.48,39.1,2.84,15.24,17.14,27.3,32.99,27.83,16.7,.56,31.61-11.04,35.35-27.5,3.68-16.22-5.12-33.15-20.79-39.56Zm-13.36,46.31c-7.69,.02-14.18-6.39-14.27-14.09-.08-7.75,6.65-14.46,14.39-14.35,7.74,.11,14.07,6.55,14.03,14.3-.04,7.8-6.37,14.13-14.16,14.14Z"/>
   </g>
 </svg>
-{% endcomment %}
-    kbscsmcbm
       </div>
       <div class="col-6 sting-health-content">
        <h2>Highly Advanced Thermo-Regulating Cool Fabric </h2>
@@ -1021,8 +1019,8 @@ document.querySelector('#shareBtn')
       </div>
       </div>
       </div>
-
-
+   
+      
       </div>
       </div>
 </div>
@@ -1038,9 +1036,9 @@ document.querySelector('#shareBtn')
                <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/3_layer.jpg?v=1663663224" alt="advance">
 </div>
    <h3>Luxurious Triple-Layer Smart Profile Foam™  </h3>
-                <p>Unwind on the ultra-luxurious layers of Ultra Soft Spring Foam, Pro Ecological Hybrid Ortho Foam
-                  and High-Density Medium-Soft Foam.
-                  These layers provide the perfect balance of support and comfort to get your body relaxing.  </p>
+                <p>Unwind on the ultra-luxurious layers of Ultra Soft Spring Foam, Pro Ecological Hybrid Ortho Foam 
+                  and High-Density Medium-Soft Foam. 
+                  These layers provide the perfect balance of support and comfort to get your body relaxing.  </p>             
 </div>
                  <div class="col-sm-4 spin-health-spacing-issue">
                   <div class="grounded-radiants">
@@ -1054,11 +1052,11 @@ document.querySelector('#shareBtn')
                 <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Thermo_regulating.jpg?v=1663663202" alt="ski-friendly">
 </div>
                     <h3>Highly Advanced Thermo-Regulating Cool Fabric </h3>
-                <p>The incredibly soft and plush Smart Temp Fabric on the Ultrabliss mattress comes with adaptive
-                  cooling that activates when a
+                <p>The incredibly soft and plush Smart Temp Fabric on the Ultrabliss mattress comes with adaptive 
+                  cooling that activates when a 
                   high body temperature is detected and deactivates once the cooling is complete, giving you a warm sleep.  </p>
 </div>
-            <div>
+            <div>    
 </div>
                </div>
 </div>
@@ -1070,7 +1068,7 @@ document.querySelector('#shareBtn')
       </div>
       <div class="col-sm-12 abover-spacing">
       <div class="row mobile-sting-health-row">
-
+     
       <div class="col-6 grounded-radiants">
       <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 518">
@@ -1111,7 +1109,7 @@ document.querySelector('#shareBtn')
       <div class="row mobile-sting-health-row">
    <div class="col-6 sting-health-content-1">
        <h2>Optimal spine alignment with 4-ZONE-Profile </h2>
-       <p>Relieve your body with the advanced four-zone profile that promotes efficient weight distribution and air circulation.
+       <p>Relieve your body with the advanced four-zone profile that promotes efficient weight distribution and air circulation. 
       It is a complete body support system offering maximum spinal health, orthopaedic support and sleeping comfort. </p>
                 </div>
          <div class="col-6 grounded-radiants">
@@ -1196,14 +1194,14 @@ document.querySelector('#shareBtn')
   </g>
 </svg>
       </div>
-
-
-
+     
+           
+     
       </div>
       </div>
   <div class="col-sm-12">
       <div class="row mobile-sting-health-row">
-
+      
       <div class="col-6 grounded-radiants">
      <?xml version="1.0" encoding="UTF-8"?>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1237,8 +1235,8 @@ document.querySelector('#shareBtn')
       </div>
       </div>
       </div>
-
-
+   
+      
       </div>
       </div>
 </div>
@@ -1254,8 +1252,8 @@ document.querySelector('#shareBtn')
                <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Dual_Layered.jpg?v=1663589701" alt="advance">
 </div>
    <h3>Dual-Layered Convoluted and Floating Foam </h3>
-                <p>Enjoy excellent back support and optimal spine alignment with the dual layer of Floating foam and Convoluted Active foam.
-      These layers work together to support your body's natural curves while relieving stress on your spine. </p>
+                <p>Enjoy excellent back support and optimal spine alignment with the dual layer of Floating foam and Convoluted Active foam. 
+      These layers work together to support your body's natural curves while relieving stress on your spine. </p>             
 </div>
                  <div class="col-sm-4 spin-health-spacing-issue">
                   <div class="grounded-radiants">
@@ -1270,14 +1268,14 @@ document.querySelector('#shareBtn')
                 <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Odour_and_stain_resistant.jpg?v=1663605010" alt="ski-friendly">
 </div>
                     <h3>Odour and stain-resistant anti-microbial fabric </h3>
-                <p>Free yourself of proliferating microbes, fungus, odours, discolouration, and stains with the anti-microbial fabric on the Aeroluxe.
+                <p>Free yourself of proliferating microbes, fungus, odours, discolouration, and stains with the anti-microbial fabric on the Aeroluxe. 
       This fabric keeps the mattress fresh and clean while extending its durability and shelf life.  </p>
 </div>
-            <div>
+            <div>    
 </div>
                </div>
 </div>
-                  {% endif %}
+                  {% endif %} 
     {% if product.handle contains 'nilkamal-accube-6-inch-smart-profile-foam-mattress' %}
                  <div class="visible-mobile">
       <div>
@@ -1285,7 +1283,7 @@ document.querySelector('#shareBtn')
       </div>
       <div class="col-sm-12 abover-spacing">
       <div class="row mobile-sting-health-row">
-
+     
       <div class="col-6 grounded-radiants">
      <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 518">
@@ -1318,7 +1316,7 @@ document.querySelector('#shareBtn')
       </div>
       <div class="col-6 sting-health-content">
        <h2>The Advanced Five-Zone Cube Grid Technology </h2>
-       <p>Experience sleeping comfort like never before with the innovative five-zone cube grid technology that ensures optimal posture alignment,
+       <p>Experience sleeping comfort like never before with the innovative five-zone cube grid technology that ensures optimal posture alignment, 
       efficient blood circulation, and muscle relaxation to keep you comfortable while sleeping. </p>  </div>
       </div>
       </div>
@@ -1358,14 +1356,14 @@ document.querySelector('#shareBtn')
   </g>
 </svg>
       </div>
-
-
-
+     
+           
+     
       </div>
       </div>
   <div class="col-sm-12">
       <div class="row mobile-sting-health-row">
-
+      
       <div class="col-6 grounded-radiants">
     <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 518">
@@ -1397,14 +1395,14 @@ document.querySelector('#shareBtn')
       </div>
       <div class="col-6 sting-health-content">
        <h2>Skin-friendly Aloe Vera Infused Natural Fabric </h2>
-       <p>Treat your body with the natural Aloe Vera-based fabric of the Accube Mattress.
+       <p>Treat your body with the natural Aloe Vera-based fabric of the Accube Mattress. 
       Aloe Vera is known for its healing and regenerative properties,
       and by including it in our mattresses, we're sure to make your sleep healthier.  </p>
       </div>
       </div>
       </div>
-
-
+   
+      
       </div>
       </div>
 </div>
@@ -1420,9 +1418,9 @@ document.querySelector('#shareBtn')
                <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/The_Advanced_Five-Zone_Cube_Grid_Technology.jpg?v=1663568370" alt="advance">
 </div>
    <h3>The Advanced Five-Zone Cube Grid Technology </h3>
-                <p>Experience sleeping comfort like never before with the innovative five-zone
-      cube grid technology that ensures optimal posture alignment,
-      efficient blood circulation, and muscle relaxation to keep you comfortable while sleeping.  </p>
+                <p>Experience sleeping comfort like never before with the innovative five-zone 
+      cube grid technology that ensures optimal posture alignment, 
+      efficient blood circulation, and muscle relaxation to keep you comfortable while sleeping.  </p>             
 </div>
                  <div class="col-sm-4 spin-health-spacing-issue">
                   <div class="grounded-radiants">
@@ -1438,25 +1436,25 @@ document.querySelector('#shareBtn')
                 <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Skin-friendly_Aloe_Vera_Infused_Natural_Fabric.jpg?v=1663569015" alt="ski-friendly">
 </div>
                     <h3>Skin-friendly Aloe Vera Infused Natural Fabric</h3>
-                <p>Treat your body with the natural Aloe Vera-based fabric of the Accube Mattress.
+                <p>Treat your body with the natural Aloe Vera-based fabric of the Accube Mattress. 
       Aloe Vera is known for its healing and regenerative properties,
       and by including it in our mattresses, we're sure to make your sleep healthier.  </p>
 </div>
-            <div>
+            <div>    
 </div>
                </div>
 </div>
-                  {% endif %}
+                  {% endif %}     
                     {% if product.handle contains 'nilkamal-rejuve-5-inch-smart-profile-foam-mattress' %}
                  <div class="visible-mobile">
-
+                        
       <div>
       <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mobile_banner-03.png?v=1663609493" class="spin-health-image">
       </div>
       <div class="col-sm-12 abover-spacing title-spin-health">
                       <h3>Features</h3>
       <div class="row mobile-sting-health-row">
-
+     
       <div class="col-6 grounded-radiants">
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 518">
@@ -1487,8 +1485,8 @@ document.querySelector('#shareBtn')
       </div>
       <div class="col-6 sting-health-content">
        <h2>Dynamic 3-zone sleep enhancement profile</h2>
-       <p>Experience the most restorative sleep of your life with the innovative 3-zone
-                      sleep enhancement profile on the Rejuve Mattress. Its profiled ortho foam
+       <p>Experience the most restorative sleep of your life with the innovative 3-zone 
+                      sleep enhancement profile on the Rejuve Mattress. Its profiled ortho foam 
                       improves air circulation and bounces for a pleasant sleeping experience. </p>
                 </div>
       </div>
@@ -1497,7 +1495,7 @@ document.querySelector('#shareBtn')
       <div class="row mobile-sting-health-row">
    <div class="col-6 sting-health-content-1">
        <h2>Child-friendly medium-soft premium mattress </h2>
-       <p>Relax on the Rejuve mattress, which strikes an ideal balance between softness and firmness thanks to the Single Convoluted Stripe design. As a result,
+       <p>Relax on the Rejuve mattress, which strikes an ideal balance between softness and firmness thanks to the Single Convoluted Stripe design. As a result, 
                       the Rejuve is the perfect sleeping surface for children and Indian families.  </div>
          <div class="col-6 grounded-radiants">
        <?xml version="1.0" encoding="UTF-8"?>
@@ -1534,14 +1532,14 @@ document.querySelector('#shareBtn')
   </g>
 </svg>
       </div>
-
-
-
+     
+           
+     
       </div>
       </div>
   <div class="col-sm-12">
       <div class="row mobile-sting-health-row">
-
+      
       <div class="col-6 grounded-radiants">
      <?xml version="1.0" encoding="UTF-8"?>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1574,13 +1572,13 @@ document.querySelector('#shareBtn')
       </div>
       <div class="col-6 sting-health-content">
        <h2>Advanced anti-static and anti-stress fabric  </h2>
-       <p>Rejuve is a one-of-a-kind mattress with an anti-static fabric that absorbs static electricity and tension, resulting in less drowsiness and more rest.
+       <p>Rejuve is a one-of-a-kind mattress with an anti-static fabric that absorbs static electricity and tension, resulting in less drowsiness and more rest. 
          It can even resist dust and extend the lifespan of the mattress. </p>
       </div>
       </div>
       </div>
-
-
+   
+      
       </div>
       </div>
 </div>
@@ -1596,17 +1594,17 @@ document.querySelector('#shareBtn')
                <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Dynamic_3_zone.jpg?v=1663609424" alt="advance">
 </div>
    <h3>Dynamic 3-zone sleep enhancement profile  </h3>
-                <p>Experience the most restorative sleep of your life with the innovative 3-zone
-                      sleep enhancement profile on the Rejuve Mattress. Its profiled ortho foam
-                      improves air circulation and bounces for a pleasant sleeping experience. </p>
+                <p>Experience the most restorative sleep of your life with the innovative 3-zone 
+                      sleep enhancement profile on the Rejuve Mattress. Its profiled ortho foam 
+                      improves air circulation and bounces for a pleasant sleeping experience. </p>             
 </div>
                  <div class="col-sm-4 spin-health-spacing-issue">
                   <div class="grounded-radiants">
 <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Child_Friendly.jpg?v=1663609412" alt="smart">
 </div>
                 <h3>Child-friendly medium-soft premium mattress</h3>
-                <p>Relax on the Rejuve mattress, which strikes an ideal balance between softness and
-                      firmness thanks to the Single Convoluted Stripe design. As a result,
+                <p>Relax on the Rejuve mattress, which strikes an ideal balance between softness and 
+                      firmness thanks to the Single Convoluted Stripe design. As a result, 
                       the Rejuve is the perfect sleeping surface for children and Indian families.</p>
                       </div>
                  <div class="col-sm-4">
@@ -1614,11 +1612,11 @@ document.querySelector('#shareBtn')
                 <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/Advanced_Anti_static.jpg?v=1663609419" alt="ski-friendly">
 </div>
                     <h3>Advanced anti-static and anti-stress fabric  </h3>
-                <p>Rejuve is a one-of-a-kind mattress with an anti-static fabric that absorbs static
-                      electricity and tension, resulting in less drowsiness and more rest.
+                <p>Rejuve is a one-of-a-kind mattress with an anti-static fabric that absorbs static 
+                      electricity and tension, resulting in less drowsiness and more rest. 
                       It can even resist dust and extend the lifespan of the mattress. </p>
                       </div>
-            <div>
+            <div>    
 </div>
                </div>
 </div>
@@ -1702,8 +1700,8 @@ The 32 D High-Density Foam maintains a sturdy foundation to keep your spine alig
 </div>
 </div>
 </div>
-{% endif %}
-
+{% endif %}                
+              
   {% if product.handle contains 'nilkamal-rejuve-5-inch-smart-profile-foam-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -1752,8 +1750,8 @@ A 115 mm HR Foam provides a breathable sleeping environment while insulating you
 </div>
 </div>
 </div>
-{% endif %}
-
+{% endif %}                
+ 
 {% if product.handle contains 'nilkamal-aeroluxe-6-inch-smart-profile-foam-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -1817,14 +1815,14 @@ A 75 mm HR Foam supports your back and creates a reviving back and neck support 
 The 50D High Resilience Convoluted Active Foam maintains ideal spine alignment and corrects any anatomical curves, guaranteeing increased spinal stability.
  </div>
 </div>
+  
 
-
 </div>
 </div>
 </div>
 </div>
-{% endif %}
-
+{% endif %}                               
+ 
       {% if product.handle contains 'nilkamal-accube-6-inch-smart-profile-foam-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -1870,13 +1868,13 @@ A 140 mm Super Foam makes for a de-stressing foundation for your body to facilit
 
            </div>
 </div>
+  
 
-
 </div>
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}                 
 {% if product.handle contains 'nilkamal-double-pillow-top-bonnell-spring-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -1936,7 +1934,7 @@ A 140 mm Super Foam makes for a de-stressing foundation for your body to facilit
 <div class="layerImgWrap">
   <div class="layerNum "><span>10</span></div>
   </div>
-</div>
+</div>  
 </div>
 </div>
 </div>
@@ -1991,7 +1989,7 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
 <div class="layerDescAccordian-body">
 Durable fabric that wicks away moisture and improves breathability.
 </div>
-</div>
+</div> 
   <div class="layerDescAccordian" data-layer="layer-num-6">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-6">
 <span class="textLayerNum"></span>Bonnell Springs
@@ -2047,7 +2045,7 @@ Soft fabric, supportive foam, and thick cushioning combine to provide ultimate r
 </div>
 </div>
 {% endif %}
-
+                
   {% if product.handle contains 'nilkamal-blue-sky-foam-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -2126,7 +2124,7 @@ The supportive and relaxing foam supports your spine and muscles as you sleep.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}                               
    {% if product.handle contains 'nilkamal-comfa-foam-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -2154,7 +2152,7 @@ The supportive and relaxing foam supports your spine and muscles as you sleep.
 <div class="layerImgWrap">
   </div>
 <div class="layerNum "><span>4</span></div>
-</div>
+</div> 
 <div class="img-numLayering" data-layer="layer-num-5">
 <div class="layerImgWrap">
   </div>
@@ -2164,7 +2162,7 @@ The supportive and relaxing foam supports your spine and muscles as you sleep.
 <div class="layerImgWrap">
   </div>
 <div class="layerNum "><span>6</span></div>
-</div>
+</div> 
 </div>
 </div>
 </div>
@@ -2234,8 +2232,8 @@ The high-density foam adapts to your body shape to relieve pain and pressure.
 </div>
 </div>
 </div>
-{% endif %}
-
+{% endif %}            
+                 
 {% if product.handle contains 'nilkamal-cool-bond-coir-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -2283,7 +2281,7 @@ The high-density foam adapts to your body shape to relieve pain and pressure.
 <div class="layerImgWrap">
   </div>
 <div class="layerNum "><span>8</span></div>
-</div>
+</div> 
 </div>
 </div>
 </div>
@@ -2373,8 +2371,8 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
 </div>
 </div>
 </div>
-{% endif %}
-
+{% endif %}                        
+ 
 {% if product.handle contains 'nilkamal-flora-bonnell-spring-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -2422,7 +2420,7 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
 <div class="layerImgWrap">
   </div>
 <div class="layerNum "><span>8</span></div>
-</div>
+</div>  
 </div>
 </div>
 </div>
@@ -2435,7 +2433,7 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
   <i class="fa fa-caret-up"></i>
 </h4>
 <div class="layerDescAccordian-body">
-  Premium quality knitting creates a super smooth and comfortable outer fabric.
+  Premium quality knitting creates a super smooth and comfortable outer fabric. 
   </div>
 </div>
 <div class="layerDescAccordian" data-layer="layer-num-2">
@@ -2512,7 +2510,7 @@ Lightweight cotton fabric provides excellent padding and comfort.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}               
 
 {% if product.handle contains 'nilkamal-mckenzie-ortho-coir-mattress' %}
 <div class="title-spin-health">
@@ -2607,7 +2605,7 @@ Natural fibre fillings promote breathability, support, and durability.
 <div class="layerDescAccordian-body">
  Natural fibre fillings promote breathability, support, and durability.
   </div>
-</div>
+</div>  
   <div class="layerDescAccordian" data-layer="layer-num-6">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-6">
   <span class="textLayerNum"></span>PU Foam Quilt
@@ -2622,7 +2620,7 @@ Natural fibre fillings promote breathability, support, and durability.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}       
 
 {% if product.handle contains 'nilkamal-radiance-pocket-spring-mattress' %}
 <div class="title-spin-health">
@@ -2668,7 +2666,7 @@ Natural fibre fillings promote breathability, support, and durability.
   </div>
 <div class="layerNum "><span>7</span></div>
 </div>
-
+  
   <div class="img-numLayering" data-layer="layer-num-8">
 <div class="layerImgWrap">
   </div>
@@ -2733,7 +2731,7 @@ Viscoelastic foam adjusts to your body for ideal spinal support.
 <div class="layerDescAccordian-body">
  Lightweight cotton fabric provides excellent padding and comfort.
   </div>
-</div>
+</div> 
   <div class="layerDescAccordian" data-layer="layer-num-6">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-6">
   <span class="textLayerNum"></span>Pocket Springs
@@ -2780,8 +2778,8 @@ Viscoelastic foam adjusts to your body for ideal spinal support.
 </div>
 </div>
 </div>
-{% endif %}
-
+{% endif %}              
+  
 {% if product.handle contains 'nilkamal-snehamxl-coir-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -2837,12 +2835,12 @@ Viscoelastic foam adjusts to your body for ideal spinal support.
   <i class="fa fa-caret-up"></i>
 </h4>
 <div class="layerDescAccordian-body">
-  Breathable and long-lasting polyester-cotton fabric with surface patterns and designs.
+  Breathable and long-lasting polyester-cotton fabric with surface patterns and designs. 
   </div>
 </div>
 <div class="layerDescAccordian" data-layer="layer-num-2">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-2">
-<span class="textLayerNum"></span>PU Foam Quilt
+<span class="textLayerNum"></span>PU Foam Quilt 
 <i class="fa fa-caret-down"></i>
   <i class="fa fa-caret-up"></i>
 </h4>
@@ -2867,7 +2865,7 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
   <i class="fa fa-caret-up"></i>
 </h4>
 <div class="layerDescAccordian-body">
-  Natural fibre fillings promote breathability, support, and durability.
+  Natural fibre fillings promote breathability, support, and durability. 
   </div>
 </div>
   <div class="layerDescAccordian" data-layer="layer-num-5">
@@ -2877,12 +2875,12 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
   <i class="fa fa-caret-up"></i>
 </h4>
 <div class="layerDescAccordian-body">
- High-density foam provides pressure relief and optimal postural alignment.
+ High-density foam provides pressure relief and optimal postural alignment. 
   </div>
 </div>
   <div class="layerDescAccordian" data-layer="layer-num-6">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-6">
-  <span class="textLayerNum"></span>Breathable Coir
+  <span class="textLayerNum"></span>Breathable Coir 
 <i class="fa fa-caret-down"></i>
   <i class="fa fa-caret-up"></i>
 </h4>
@@ -2897,14 +2895,14 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
   <i class="fa fa-caret-up"></i>
 </h4>
 <div class="layerDescAccordian-body">
-  The soft fabric layer features intricate designs and vibrant colours.
+  The soft fabric layer features intricate designs and vibrant colours. 
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 
 {% if product.handle contains 'nilkamal-sofi-memory-soft-and-bonded-foam-mattress' %}
 <div class="title-spin-health">
@@ -2958,7 +2956,7 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
   <i class="fa fa-caret-up"></i>
 </h4>
 <div class="layerDescAccordian-body">
-  Premium quality knitting creates a super smooth and comfortable outer fabric.
+  Premium quality knitting creates a super smooth and comfortable outer fabric. 
   </div>
 </div>
 <div class="layerDescAccordian" data-layer="layer-num-2">
@@ -2988,7 +2986,7 @@ The reliable and soothing layer of super-soft foam offers extra comfort.
   <i class="fa fa-caret-up"></i>
 </h4>
 <div class="layerDescAccordian-body">
-  Supportive and relaxing, foam supports your spine and muscles as you sleep.
+  Supportive and relaxing, foam supports your spine and muscles as you sleep. 
   </div>
 </div>
   <div class="layerDescAccordian" data-layer="layer-num-5">
@@ -3000,7 +2998,7 @@ The reliable and soothing layer of super-soft foam offers extra comfort.
 <div class="layerDescAccordian-body">
  The high-density foam adapts to your body shape to relieve pain and pressure.
   </div>
-</div>
+</div> 
   <div class="layerDescAccordian" data-layer="layer-num-6">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-6">
   <span class="textLayerNum"></span>PU Foam Quilt
@@ -3015,7 +3013,7 @@ The reliable and soothing layer of super-soft foam offers extra comfort.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 
 {% if product.handle contains 'nilkamal-ortho-comfort-bonnell-spring-mattress' %}
 <div class="title-spin-health">
@@ -3118,7 +3116,7 @@ The high-density foam adapts to your body shape to relieve pain and pressure.
 <div class="layerDescAccordian-body">
   Lightweight cotton fabric provides excellent padding and comfort.
   </div>
-</div>
+</div> 
   <div class="layerDescAccordian" data-layer="layer-num-5">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-5">
   <span class="textLayerNum"></span>Nylon Mesh
@@ -3129,7 +3127,7 @@ The high-density foam adapts to your body shape to relieve pain and pressure.
  Durable fabric that wicks away moisture and improves breathability.
   </div>
 </div>
-
+   
   <div class="layerDescAccordian" data-layer="layer-num-6">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-6">
   <span class="textLayerNum"></span>Bonnell Spring
@@ -3175,7 +3173,7 @@ A combination of soft fabric and supportive foam provides maximum cushioning.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 
 {% if product.handle contains 'nilkamal-pure-foam-mattress' %}
 <div class="title-spin-health">
@@ -3256,7 +3254,7 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 
 {% if product.handle contains 'nilkamal-soft-bond-foam-mattress' %}
 <div class="title-spin-health">
@@ -3366,7 +3364,7 @@ The reliable and soothing layer of super-soft foam offers extra comfort.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 
 {% if product.handle contains 'nilkamal-spinefit-coir-mattress' %}
 <div class="title-spin-health">
@@ -3491,7 +3489,7 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 
 {% if product.handle contains 'nilkamal-travelite-multipurpose-matt' %}
 <div class="title-spin-health">
@@ -3570,7 +3568,7 @@ Plush layer of fine polyester improves airflow and durability.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 
 {% if product.handle contains 'nilkamal-vibrant-box-top-pocket-spring-mattress' %}
 <div class="title-spin-health">
@@ -3710,7 +3708,7 @@ The reliable and soothing layer of super-soft foam offers extra comfort.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 {% if product.handle contains 'nilkamal-vibrant-pocket-spring-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -3834,7 +3832,7 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 
 {% if product.handle contains 'nilkamal-well-bond-foam-mattress' %}
 <div class="title-spin-health">
@@ -3913,7 +3911,7 @@ The high-density foam adapts to your body shape to relieve pain and pressure.
 </div>
 </div>
 </div>
-{% endif %}
+{% endif %}   
 
  {% if product.handle contains 'nilkamal-cushy-foam-mattress' %}
 <div class="title-spin-health">
@@ -3942,7 +3940,7 @@ The high-density foam adapts to your body shape to relieve pain and pressure.
 <div class="layerImgWrap">
   </div>
 <div class="layerNum "><span>4</span></div>
-</div>
+</div> 
 <div class="img-numLayering" data-layer="layer-num-5">
 <div class="layerImgWrap">
   </div>
@@ -4007,8 +4005,8 @@ Supportive and relaxing, foam supports your spine and muscles as you sleep.
 </div>
 </div>
 </div>
-{% endif %}
-
+{% endif %}            
+  
 {% if product.handle contains 'prime-6-inch-foam-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -4086,7 +4084,7 @@ Light yet durable foam that provides excellent support and comfort.
 <div class="layerDescAccordian-body">
  Smooth woven material that feels gentle and smooth against your skin.
   </div>
-</div>
+</div>  
 <div class="layerDescAccordian" data-layer="layer-num-5">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-5">
   <span class="textLayerNum"></span>Knitted Fabric
@@ -4101,8 +4099,8 @@ Light yet durable foam that provides excellent support and comfort.
 </div>
 </div>
 </div>
-{% endif %}
-
+{% endif %}            
+ 
 {% if product.handle contains 'prime-plus-6-inch-foam-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -4227,7 +4225,7 @@ Temperature-regulating foam with advanced support and softness
 </div>
 </div>
 {% endif %}
-
+                
  {% if product.handle contains 'prime-8-inch-foam-mattress' %}
 <div class="title-spin-health">
   <h3>Know Your Mattress</h3>
@@ -4256,7 +4254,7 @@ Temperature-regulating foam with advanced support and softness
   </div>
 <div class="layerNum "><span>4</span></div>
 </div>
-
+  
 <div class="img-numLayering" data-layer="layer-num-5">
 <div class="layerImgWrap">
   </div>
@@ -4317,7 +4315,7 @@ Temperature-regulating foam with advanced support and softness
  Smooth woven material that feels gentle and smooth against your skin.
   </div>
 </div>
-
+  
   <div class="layerDescAccordian" data-layer="layer-num-5">
 <h4 class="layerDescAccordian-head" data-layer="layer-num-5">
   <span class="textLayerNum"></span>Organic Banyan Fabric
@@ -4352,12 +4350,114 @@ Temperature-regulating foam with advanced support and softness
 </div>
 </div>
 </div>
-{% endif %}
-          {% include 'mattress-firmness-meter' %}
-     <h2 class="information-product">Product Information</h2>
-                {% include "vertical-product-description-new" %}
-                     {% include "vertical-product-description" %}
+{% endif %}  
 
+{% if product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' or product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+    <main class="main__custom">
+    <div class="custom__container__product">
+      {%  comment  %}
+      <section class="banner__gamincair">
+        <div class="banner__img">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1800x720.jpg?v=1673590261" alt="">
+        </div>
+      </section>
+      <section class="banner__gamincair__mobile">
+        <div class="banner__img__mob">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/800x600.jpg?v=1673590483" alt="">
+        </div>
+        <div class="banner__content__mob">
+          <p>
+            Nilkamal presents Fyrebird, a range of battle-ready gaming chairs for those who love gaming. The Fyrebird collection is designed to breathe new life into your gaming world with chairs designed for unmatched comfort, unrestricted mobility, and ergonomic support to enjoy hours of non-stop gaming.
+          </p>
+        </div>
+      </section>
+      {% endcomment %}
+    <section class="gaming__main__feature">
+      <div class="gamin__main__heading">
+        <span>What Makes Fyrebird Gaming Chairs The Best For Gamers?</span>
+      </div>
+      <div class="gaming__main__container">
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBG_fireball.json?v=1672665035"   background="transparent"  speed="1" class="chair__back__product_video" loop  autoplay></lottie-player>
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBG_fireball.json?v=1672665035"   background="transparent"  speed="1" class="chair__back__product_video1" loop  autoplay></lottie-player>
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBF_Firetorch.json?v=1672665034"   background="transparent"  speed="1" class="fire__ball__lottie_1" loop  autoplay></lottie-player>
+        <lottie-player src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/TransBF_Firetorch.json?v=1672665034"   background="transparent"  speed="1" class="fire__ball__lottie_2" loop  autoplay></lottie-player>
+        <div class="gaming__main_box">
+          <div class="gamin__main__images">
+      {% if product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' %}
+            <lottie-player src="{{ product.metafields['product']['gaming_chair1_image'] }}"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+        {% endif %}
+      {% if product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+        <img src="{{ product.metafields['product']['gaming_chair1_image'] }}" class="chair__video">
+        {% endif %}
+          </div>
+          <div class="gamin__main__content">
+            <span class="gaming__main__content__heading">{{ product.metafields['product']['gaming_chair1_title'] }}</span>
+            <p class="gamin__main__content__para">{{ product.metafields['product']['gaming_chair1_para'] }}</p>
+          </div>
+        </div>
+        <div class="gaming__main_box">
+          <div class="gamin__main__content">
+      <span class="gaming__main__content__heading">{{ product.metafields['product']['gaming_chair2_title'] }}</span>
+      <p class="gamin__main__content__para">{{ product.metafields['product']['gaming_chair2_para'] }}</p>
+      </div>
+          <div class="gamin__main__images gamin__main__images1">
+            {% if product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' %}
+            <lottie-player src="{{ product.metafields['product']['gaming_chair2_image'] }}"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+        {% endif %}
+      {% if product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+        <img src="{{ product.metafields['product']['gaming_chair2_image'] }}" class="chair__video">
+        {% endif %}
+          </div>
+        </div>
+        <div class="gaming__main_box">
+          <div class="gamin__main__images">
+      {% if product.handle contains 'nilkamal-vaden-gaming-chair-black-red' or product.handle contains 'nilkamal-greta-gaming-chair-gery-white' %}
+            <lottie-player src="{{ product.metafields['product']['gaming_chair3_image'] }}"  background="transparent"  speed="1" class="chair__video"  loop  autoplay></lottie-player>
+        {% endif %}
+      {% if product.handle contains 'nilkamal-canophy-gaming-chair-black' or product.handle contains 'nilkamal-razos-gaming-chair-brown-beige' or product.handle contains 'nilkamal-athena-gaming-chair-grey-turquoise' or product.handle contains 'nilkamal-marvel-gaming-chair-black-red' or product.handle contains 'nilkamal-bosco-gaming-chair-black-blue' %}
+        <img src="{{ product.metafields['product']['gaming_chair3_image'] }}" class="chair__video">
+        {% endif %}
+          </div>
+          <div class="gamin__main__content">
+      <span class="gaming__main__content__heading">{{ product.metafields['product']['gaming_chair3_title'] }}</span>
+      <p class="gamin__main__content__para">{{ product.metafields['product']['gaming_chair3_para'] }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="generic__features">
+      <div class="gamin__main__heading">
+        <span>Salient Fyrebird Gaming Chair Features</span>
+      </div>
+      <div class="generic__feat__box">
+        <div class="generic__feat__item">
+          <img src="{{ product.metafields['product']['generic_features_image1'] }}" alt="">
+          <span>{{ product.metafields['product']['generic_features_title1'] }}</span>
+        </div>
+        <div class="generic__feat__item">
+          <img src="{{ product.metafields['product']['generic_features_image2'] }}" alt="">
+          <span>{{ product.metafields['product']['generic_features_title2'] }}</span>
+        </div>
+        <div class="generic__feat__item">
+          <img src="{{ product.metafields['product']['generic_features_image3'] }}" alt="">
+          <span>{{ product.metafields['product']['generic_features_title3'] }}</span>
+        </div>
+        <div class="generic__feat__item">
+          <img src="{{ product.metafields['product']['generic_features_image4'] }}" alt="">
+          <span>{{ product.metafields['product']['generic_features_title4'] }}</span>
+        </div>
+      </div>
+    </section>
+    </div>
+    </main>
+    {% endif %}
+
+
+          {% include 'mattress-firmness-meter' %}   
+     <h2 class="information-product">Product Information</h2>
+                {% include "vertical-product-description-new" %} 
+                     {% include "vertical-product-description" %}  
+                  
               {% if product.description contains "<!-- split -->"  %}
               <br class="clear" />
               <div class="section clearfix">
@@ -4366,18 +4466,18 @@ Temperature-regulating foam with advanced support and softness
                 </div>
               </div>
               {% endif %}
-
+              
               {% if settings.enable_shopify_review_comments and section.settings.review_position == "below_gallery" %}
               <div class="shopify-reviews">
                 <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
               </div>
               {% endif %}
             </div>
-
+              
             {% endform %}
           </div>
           {% if sidebar %}
-
+          
           {% if section.settings.display_related_products %}
             <div class="container">
           {% include 'related-products' %}
@@ -4386,13 +4486,13 @@ Temperature-regulating foam with advanced support and softness
           {% if section.settings.display_recently_viewed %}
           {% include 'recently-viewed' %}
           {% endif %}
-
+          
         </div>
       </div>
     </div>
-
+    
     {% else %}
-
+    
   </div>
 </div>
 </div>
@@ -4440,9 +4540,9 @@ Temperature-regulating foam with advanced support and softness
     height: 40px;
 }
 </style>
+  
 
-
-
+      
       <script>
           dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
 dataLayer.push({
@@ -4450,7 +4550,7 @@ dataLayer.push({
   ecommerce: {
     items: [
     {
-      item_id: "{{ product.id }}", // product id
+      item_id: "{{ product.id }}", // product id 
       item_name: "{{ product.title }}", //product name
       affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
       /* coupon: "", //The coupon name/code associated with the item if applied */
@@ -4468,7 +4568,7 @@ dataLayer.push({
       /* item_variant: "Velvet", //The item variant or unique code or description for additional item details/options. */
       /* rtlocation_id: "", //Dynamically pass the location_id  if available */
      /* quantity: "{{ cart.item_count }}", //Item quantity */
-      user_id: "{{ customer.id }}"//user id of logged in user
+      user_id: "{{ customer.id }}"//user id of logged in user   
     }
     ]
   }
@@ -4482,7 +4582,7 @@ dataLayer.push({
   ecommerce: {
     items: [
     {
-      item_id: "{{ item.product.id }}", // product id
+      item_id: "{{ item.product.id }}", // product id 
       item_name: "{{ item.product.title }}", //product name
       //affiliation: "", //A product affiliation to designate a supplying company or brick and mortar store location.
       //coupon: "", //The coupon name/code associated with the item if applied
@@ -4500,14 +4600,14 @@ dataLayer.push({
       //item_variant: "Velvet", //The item variant or unique code or description for additional item details/options.
       //location_id: "", //Dynamically pass the location_id  if available
       quantity: "{{ cart.item_count }}", //Item quantity
-      user_id: "{{ customer.id }}"//user id of logged in user
+      user_id: "{{ customer.id }}"//user id of logged in user   
     }
     ]
   }
-});
+}); 
           });
 </script>
-   <script>
+   <script>    
 /*** Back to top **/
 if ($('#back-to-top').length) {
     var scrollTrigger = 100, // px
@@ -4531,7 +4631,7 @@ if ($('#back-to-top').length) {
     });
 }
 
-</script>
+</script>  
 <script>
 window.onICMerchantSDKReady = function() {
 //Initialize the ICMerchantSDK once ic-merchant-sdk.js has been loaded
@@ -4574,15 +4674,15 @@ entry.parentNode.insertBefore(script, entry);
      console.log("krishu",price)
     $('.total_price').html("Total &#8377; " + quantity * price);
    });
-
+  
 </script>
-
+      
 <script>
   $(".js-change-quantity").click(function() {
     var action = $(this).attr("data-func");
     if(action == 'plus')
     {
-     var quantity = parseInt($('#quantity').val()) + 1;
+     var quantity = parseInt($('#quantity').val()) + 1; 
     }else if(action == 'minus')
     {
       var minimum = $('#quantity').attr("min");
@@ -4590,7 +4690,7 @@ entry.parentNode.insertBefore(script, entry);
       if(qty != 1)
       {
         if(minimum < qty){
-           var quantity = parseInt($('#quantity').val()) - 1;
+           var quantity = parseInt($('#quantity').val()) - 1;    
         }else{
           var quantity = parseInt($('#quantity').val())
           var price = {{ product.price | replace_last :'00',''}};
@@ -4602,7 +4702,7 @@ entry.parentNode.insertBefore(script, entry);
     }
       var price = {{ product.price | replace_last :'00',''}};
     $('.total_price').html("Total &#8377; " + quantity * price);
-
+    
   });
 </script>
 
@@ -4656,7 +4756,7 @@ entry.parentNode.insertBefore(script, entry);
     margin-left: 5% !important;
     margin-right: 5% !important;
 }
-.grounded-radiants img{
+.grounded-radiants img{ 
             width: 100%;
       border-radius: 12px;
 }
@@ -4722,9 +4822,19 @@ entry.parentNode.insertBefore(script, entry);
     background: #00AAFF;
     box-shadow: 0px 10px 14px rgb(0 0 0 / 8%);
 }
+{% if product.tags contains 'Gaming Chair' %}
+.w369-tag-line {
+      font-size: 14px;
+    text-align: center;
+    font-family: 'Inter';
+    color: #fff !important;
+}
+p.offer {
+    color: #fff !important;
+}
+  {% endif %}
 
-
-
+ 
   @media (max-width:767px){
 .grounded-radiants {
  position: relative;
@@ -4761,7 +4871,7 @@ entry.parentNode.insertBefore(script, entry);
 }
     body#mattress-buy-mattress-online-upto-10-off-nilkamal-furnitures .banner {
         margin-top: 45px;
-}
+} 
     .mobile-sting-health-row{
       display: flex;
     justify-content: center;
@@ -5264,7 +5374,7 @@ entry.parentNode.insertBefore(script, entry);
   ],
   "default": {
     "settings": {
-
+      
     }
   }
 }

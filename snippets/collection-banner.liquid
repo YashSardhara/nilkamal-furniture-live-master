@@ -1,4 +1,152 @@
-<div class="banner spinehealth">
- <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/desktop_1400x350_925fafb4-ec49-4e27-b604-351a40fb9470.png?v=1662630601" class="visible-desktop">
-   <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mobile_2_c8feabd6-f11e-4eb2-92f9-5d486bc52ac8.png?v=1662630606" class="visible-mobile">
-</div>
+{% if collection.handle contains 'spine-health-technology' %}
+  <div class="banner spinehealth">
+    <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/desktop_1400x350_925fafb4-ec49-4e27-b604-351a40fb9470.png?v=1662630601" class="visible-desktop">
+    <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mobile_2_c8feabd6-f11e-4eb2-92f9-5d486bc52ac8.png?v=1662630606" class="visible-mobile">
+  </div>
+{% endif %}
+
+
+
+{% if collection.handle contains 'fyrebird-gaming-chairs' %}
+  <div class="slider__container slider__container__desktop ">
+    <div class=" mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/1920x760_final__Fyre_Desktop.jpg?v=1676468030" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slider__container slider__container_mobile">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/800x1068_Fyre_Mobile.jpg?v=1676468030" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<style>
+  .slider__container_mobile {
+    display: none;
+  }
+
+  @media(max-width:564px) {
+    .slider__container_mobile {
+      display: block;
+    }
+
+    .slider__container__desktop {
+      display: none;
+    }
+
+    .swiper-slide img {
+      object-fit: none;
+    }
+
+    .swiper-button-prev1 {
+      left: 20px !important;
+    }
+
+    .swiper-button-next1 {
+      right: 20px !important;
+    }
+
+    .slider__container_mobile .swiper-slide {
+      margin-top: -11px;
+    }
+
+  }
+
+  .slider__container {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-button-next1 img,
+  .swiper-button-prev1 img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .swiper {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    object-fit: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-button-next1,
+  .swiper-button-prev1 {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 50%;
+    margin-top: calc(0px -(var(--swiper-navigation-size) / 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swiper-button-next1 {
+    right: 93px;
+    left: auto;
+  }
+
+  .swiper-button-prev1 {
+    left: 93px;
+    right: auto;
+  }
+
+  .slider_container_desktop .swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    margin-top: 0;
+    padding: 0;
+    z-index: 1;
+  }
+</style>
+
+<script>// var swiper = new Swiper(".mySwiper", {
+// loop: true,
+// navigation: {
+//     nextEl: ".swiper-button-next1",
+//     prevEl: ".swiper-button-prev1"
+// },
+// pagination: {
+//     el: ".swiper-pagination"
+// }
+// });
+</script>

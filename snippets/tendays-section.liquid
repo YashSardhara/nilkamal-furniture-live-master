@@ -1,12 +1,38 @@
-<div class="container ten-days-section">
+<!-- Axio start -->
+<!-- <style>
+  .mobile_axio_bnnr {
+    display: none;
+  }
+  img.desktop_axio_bnnr {
+    width: 100%;
+  }
+  @media only screen and (max-width: 600px) {
+    .mobile_axio_bnnr {
+      display: block !important;
+    }
+    .desktop_axio_bnnr {
+      display: none !important;
+    }
+    img.mobile_axio_bnnr {
+    width: 100%;
+    }
+  }
+</style>
+<div class="axio_imgbanner">
+<img class="desktop_axio_bnnr" src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/AXIO_1301_x_188_1aaf52c8-e531-4358-95ba-9cfd016067d0.jpg?v=1676629143">
+<img class="mobile_axio_bnnr" src="https://cdn.shopify.com/s/files/1/0248/7766/2271/files/AXIO_474_x_201.jpg?v=1676629143">
+</div> -->
+<!-- Axio end -->
+
+<div class="container ten-days-section"> 
   <img
-    src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/desktop_e80285b1-a547-4f4d-a6ed-202c86612919.png?v=1674555777"
-    alt="ten days"
-    class="ten-days visible-desktop">
+    class="ten-days visible-desktop-tendeals lazyload" data-sizes="auto"
+    data-src="https://cdn.shopify.com/s/files/1/0099/2867/1291/files/DESKTOP_610b2ee7-0283-496f-859c-869d4cdefd50_desk.png?v=1678272733"
+    alt="ten days" />
   <img
-    src="https://cdn.shopify.com/s/files/1/0044/1208/0217/files/mobile_1affb34d-0ede-4a53-bd71-d33b4398046c.png?v=1674555778"
-    alt="ten days"
-    class="ten-days visible-mobile">
+    class="ten-days visible-mobile-tendeals lazyload" data-sizes="auto"
+    data-src="https://cdn.shopify.com/s/files/1/0099/2867/1291/files/MOBILE_5c425af7-78b7-4716-806b-83020eb58b81_mobile.png?v=1678272733"
+    alt="ten days" />
   <div id="clockdiv">
     <div>
       <span class="days" id="day"></span>
@@ -35,12 +61,13 @@
     border: 2px solid grey;
     padding: 15px;
   }
+
   #clockdiv {
     font-family: 'Poppins';
-    color: #000;
+    color: #ff366f ;
     position: absolute;
-    top: 51%;
-    right: 23%;
+       top: 41%;
+    right: 19em;
     bottom: 0;
     display: inline-block;
     font-weight: 500;
@@ -50,65 +77,93 @@
     margin: auto;
     padding: 18px;
   }
+  
 
   #clockdiv span {
-    color: #000;
+    color: #ff366f ;
     line-height: 24px;
   }
-  #clockdiv > div {
+
+  #clockdiv>div {
     display: inline-block;
     margin: 5px;
-    line-height: 0;
   }
+
+  .visible-desktop-tendeals {
+    display: block !important;
+  }
+
+  .visible-mobile-tendeals {
+    display: none !important;
+  }
+
   @media only screen and (max-width: 767px) {
+    .visible-desktop-tendeals {
+      display: none !important;
+    }
+
+    .visible-mobile-tendeals {
+      display: block !important;
+    }
+
     #clockdiv span {
-      color: #000;
+      color: #ff366f;
     }
 
     #clockdiv {
       font-family: sans-serif;
-      color: #000;
+      color: #ff366f ;
       position: absolute;
-      top: 70%;
-      right: 12%;
-      bottom: 0;
-      display: inline-block;
+      top: 71%;
+      right: 0;
+      left: 0;
       font-weight: bold;
       text-align: center;
-      font-size: 14px;
+      font-size: 16px;
       background-color: transparent;
-      margin: auto;
-      padding: 18px;
+      margin: 0;
+      padding: 0;
+      height: 4em;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
     }
+
     .ten-days {
       margin-top: 20px;
       border: 2px solid grey;
       padding: 10px;
     }
   }
-  #clockdiv > div {
+
+  #clockdiv>div,
+  #clockdiv>span {
     display: inline-block;
     margin: 5px;
-    line-height: 16px;
+    line-height: 21px;
   }
-  #clockdiv > p {
+
+  #clockdiv>p {
     color: #000;
     font-weight: bolder;
     font-size: 23px;
     margin-bottom: 30px;
   }
-  #clockdiv div > span {
+
+  #clockdiv div>span {
     display: inline-block;
 
   }
+
   .container.ten-days-section {
     position: relative;
   }
+
 </style>
 <script>
-  var deadline = new Date("Jan 31, 2023 12:00:00").getTime();
+  var deadline = new Date("Mar 10, 2023 12:00:00").getTime();
 
-  var x = setInterval(function() {
+  var x = setInterval(function () {
 
     var now = new Date().getTime();
     var t = deadline - now;

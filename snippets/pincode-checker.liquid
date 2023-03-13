@@ -9,22 +9,16 @@
     height: 100%;
     z-index: 2;
     display: block;
-    background: #fff;
+    background: transparent;
     padding: 0;
     display: none;
 
   }
-
   .ErrDiv {
     color: red;
   }
-
-  .left-col-modular {
-    display: flex;
-  }
 </style>
-
-<div class="left-col {% if product.tags contains  'modular-bed'%} left-col-modular{%endif%}">
+<div class="left-col">
   <div class="lds-ellipsis preloader">
     <div></div>
     <div></div>
@@ -87,9 +81,7 @@
   $(".number_only").keypress(function(h) {
     if (8 != h.which && 0 != h.which && 32 != h.which && (h.which < 48 || h.which > 57)) 
       return !1
-
     
-
   });
   $('.check_pincode').click(function(e) {
     $('.preloader').css('display', 'block');
@@ -121,9 +113,12 @@
     var qty = parseInt($('#quantity').val());
 
 
-    window._VARIANTS = {};{% for variant in product.variants %}window._VARIANTS[{{ variant.id }}] = [
+    window._VARIANTS = {};{% for variant in product.variants %}
+      window._VARIANTS[{{ variant.id }}] = [
         {{ variant.inventory_quantity }}, {{ variant.available }}
-      ],{% endfor %}$.each(window._VARIANTS, function(j, variantQty) {
+      ],{% endfor %}
+
+    $.each(window._VARIANTS, function(j, variantQty) {
 
 // console.log("BI01", variantQty);
       if (j == variant_id) {
@@ -224,18 +219,9 @@
     position: absolute;
     width: 83px;
     height: 23px;
-    left: 87%;
-    top: 22%;
+    left: 78%;
+    top: 19%;
   }
-  {% if product.tags contains 'modular-bed' %}
-    .lds-ellipsis {
-      position: absolute;
-      width: 83px;
-      height: 23px;
-      left: 87%;
-      top: 22%;
-    }
-  {% endif %}
   .lds-ellipsis div {
     position: absolute;
     top: 0;
@@ -245,52 +231,42 @@
     background: #00AAFF;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
-
   .lds-ellipsis div:nth-child(1) {
     left: 8px;
     animation: lds-ellipsis1 0.6s infinite;
   }
-
   .lds-ellipsis div:nth-child(2) {
     left: 8px;
     animation: lds-ellipsis2 0.6s infinite;
   }
-
   .lds-ellipsis div:nth-child(3) {
     left: 32px;
     animation: lds-ellipsis2 0.6s infinite;
   }
-
   .lds-ellipsis div:nth-child(4) {
     left: 56px;
     animation: lds-ellipsis3 0.6s infinite;
   }
-
   @keyframes lds-ellipsis1 {
     0% {
       transform: scale(0);
     }
-
     100% {
       transform: scale(1);
     }
   }
-
   @keyframes lds-ellipsis3 {
     0% {
       transform: scale(1);
     }
-
     100% {
       transform: scale(0);
     }
   }
-
   @keyframes lds-ellipsis2 {
     0% {
       transform: translate(0, 0);
     }
-
     100% {
       transform: translate(24px, 0);
     }

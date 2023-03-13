@@ -4807,9 +4807,10 @@
       },
       "1489283389016": {
         "type": "image-with-text-overlay",
+        "disabled": true,
         "settings": {
-          "image": "shopify:\/\/shop_images\/1300x380.png",
-          "mobimage": "shopify:\/\/shop_images\/mobile_banner_mattress.png",
+          "image": "shopify:\/\/shop_images\/iffs_redesign_mattress_3e9856b0-09a9-454a-81cb-0481db2ad23b.png",
+          "mobimage": "shopify:\/\/shop_images\/mattress_e7a89867-e598-4ed2-87c1-b720c6a6cba8.png",
           "pretext": "",
           "title": "",
           "subtitle": "",
@@ -4852,8 +4853,8 @@
           "e8692b67-cd4c-4966-980e-3c2b340d9dae": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/desktop_59f9d0fb-fa85-4ec4-99b7-3a21b9a28e72.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_447f4245-6bb2-4ac8-b094-c4781feba6a6.png",
+              "image": "shopify:\/\/shop_images\/Desktop.jpg",
+              "mobimage": "shopify:\/\/shop_images\/Mobike.jpg",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4865,15 +4866,15 @@
               "button1_link": "",
               "button1_highlight": false,
               "button2": "",
-              "button2_link": "shopify:\/\/collections\/best-deals-1",
+              "button2_link": "shopify:\/\/collections\/fyrebird-gaming-chairs",
               "button2_highlight": false
             }
           },
           "27bfdce4-7a35-4c6d-bbab-65b4d4a65a73": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/iffs_redesign_bedroom_074c511d-4653-4b51-8e5f-db87ee3442f7.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_bedroom_8a8b50b1-fa13-4627-b826-fc1051d1ccc1.png",
+              "image": "shopify:\/\/shop_images\/bedroom_5deb0c26-9b7a-467a-9ef3-40bf1b6c63a6.png",
+              "mobimage": "shopify:\/\/shop_images\/bedroom_c5232ea7-5c54-4d68-8a02-22656ca8aa46.png",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4892,8 +4893,8 @@
           "58e1e717-639e-4b76-a088-3fe714fda1f4": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/iffs_redesign_living_room_banner_a29e3742-79d2-4dff-a16a-ec5cfb5bf229.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_living_room.png",
+              "image": "shopify:\/\/shop_images\/living_0b1c6885-bf6b-4636-8878-7f6337b39bfc.png",
+              "mobimage": "shopify:\/\/shop_images\/living_416f162d-ee20-4c3c-875f-7c3a03018483.png",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4912,8 +4913,8 @@
           "5d762771-c573-4aaf-8c94-1d45cd804a31": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/iffs_redesign_Dining_975bb061-e255-476f-acd9-4d096b71ed28.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_dining_3b33bb91-1f56-4ff9-ad5b-3f38c88ed9a4.png",
+              "image": "shopify:\/\/shop_images\/dining_4e16fb23-0afa-4240-bd26-896a96098900.png",
+              "mobimage": "shopify:\/\/shop_images\/dinging_e2a9e9b2-a401-4060-adc4-bf54245eea16.png",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -4932,8 +4933,8 @@
           "45837e17-a131-45cb-9d0b-f2ae89daea00": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/iffs_redesign_WFH_016d688a-a8bb-429b-994c-227113543819.png",
-              "mobimage": "shopify:\/\/shop_images\/mobile_banner_c4242064-9880-4ed3-95f3-44eebc022a29.png",
+              "image": "shopify:\/\/shop_images\/wfh_82c49071-6fff-4016-bdc0-555c62c7674b.png",
+              "mobimage": "shopify:\/\/shop_images\/wfh_9cb90043-8943-4281-a32b-304183587dbe.png",
               "pretext": "",
               "title": "",
               "subtitle": "",
@@ -6175,10 +6176,9 @@
       },
       "1647517175c11dce9c": {
         "type": "image-with-text-overlay",
-        "disabled": true,
         "settings": {
-          "image": "shopify:\/\/shop_images\/desktop_4_16cd7895-3fb3-4f06-8abe-5e32eb6d2118.png",
-          "mobimage": "shopify:\/\/shop_images\/mobile_1_6c55b8e6-b989-43de-bb32-f366c97e7752.png",
+          "image": "shopify:\/\/shop_images\/desktop-100_1701d227-26bb-40a5-8a2b-d4604dba7a2b.jpg",
+          "mobimage": "shopify:\/\/shop_images\/mobile-100_f01ef445-e9f6-4259-8f1d-9e49e48d00e6.jpg",
           "pretext": "",
           "title": "",
           "subtitle": "",
@@ -6187,7 +6187,7 @@
           "text_position": "center",
           "text_align": "center",
           "button1": "",
-          "button1_link": "shopify:\/\/pages\/nf-rewards",
+          "button1_link": "#",
           "button1_highlight": false,
           "button2": "",
           "button2_link": "",
@@ -6205,41 +6205,6 @@
         "type": "custom-html",
         "settings": {
           "custom_html": "<script async src=\"\/\/asset.fwcdn3.com\/js\/storyblock.js\"><\/script>\n    <fw-storyblock channel=\"nilkamal\" playlist=\"gpbxQ5\" mode=\"pinned\" autoplay=\"true\"><\/fw-storyblock>"
-        }
-      },
-      "product-template-modular_bed": {
-        "type": "product-template-modular_bed",
-        "settings": {
-          "gallery_arrows": true,
-          "activate_zoom": false,
-          "enable_product_lightbox": true,
-          "activate_autoplay": false,
-          "slideshow_animation": "slide",
-          "product_images_position": "left",
-          "product_thumbs": true,
-          "thumbnail_position": "bottom-thumbnails",
-          "product_breadcrumb": false,
-          "display_vendor": false,
-          "display_sku": false,
-          "display_savings": true,
-          "show_payment_button": false,
-          "display_collections": false,
-          "display_type": false,
-          "display_tags": false,
-          "display_social_buttons": true,
-          "product_description_position": "top",
-          "enable_shopify_product_badges": false,
-          "review_position": "next_to_gallery",
-          "display_related_products": true,
-          "related_products_style": "slider",
-          "related_products_limit": 4,
-          "products_per": 3,
-          "display_recently_viewed": false,
-          "rv_title": "Recently Viewed Items",
-          "rv_products_style": "grid",
-          "rv_max_display": 4,
-          "rv_per": 4,
-          "toggle": false
         }
       }
     },

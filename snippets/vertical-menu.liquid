@@ -1,43 +1,66 @@
 <div class="vertical-menu">
   {% for link in linklists[vertical-menu].links %}
   {% if linklists[link.handle] == empty %}
-  <li><a href="{{ link.url }}" class="top_link {% if link.active %}active{% endif %}"
-      data-dropdown-rel="{{ link.handle }}">{{ link.title }}</a></li>
+  <li>
+    <a href="{{ link.url }}" class="top_link {% if link.active %}active{% endif %}"
+      data-dropdown-rel="{{ link.handle }}">{{ link.title }}</a>
+  </li>
   {% else %}
-  <li class="sublink"><a data-no-instant href="{{ link.url }}"
-      class="dropdown_link--vertical {% if link.active %}active{% endif %}" data-dropdown-rel="{{ link.handle }}"
-      data-click-count="0">{{ link.title }} <span class="icon-down-arrow"></span></a>
+  <li class="sublink">
+    <a data-no-instant href="{{ link.url }}" class="dropdown_link--vertical {% if link.active %}active{% endif %}"
+      data-dropdown-rel="{{ link.handle }}" data-click-count="0">{{ link.title }}
+      <span class="icon-down-arrow"></span>
+    </a>
     <ul class="vertical-menu_submenu newvermenu">
       {% for link in linklists[link.handle].links %}
       {% if linklists[link.handle] == empty %}
-      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      <li>
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
       {% else %}
-      <li class="sublink newvermenu-sublink"><a data-no-instant href="{{ link.url }}"
-          data-click-count="0">{{ link.title }} <span class="right icon-down-arrow"></span></a>
+      <li class="sublink newvermenu-sublink">
+        <a data-no-instant href="{{ link.url }}" data-click-count="0">{{ link.title }}
+          <span class="right icon-down-arrow"></span>
+        </a>
         <ul class="vertical-menu_sub-submenu">
           {% for link in linklists[link.handle].links %}
           {% if linklists[link.handle] == empty %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
           {% else %}
-          <li class="sublink"><a data-no-instant href="{{ link.url }}" data-click-count="0"
-              class="lioneactivea">{{ link.title }} <span class="right icon-down-arrow"></span></a>
+          <li class="sublink {% if products.handle contains 'gaming chair' %}gaming_chair{% endif %}">
+            <a data-no-instant href="{{ link.url }}" data-click-count="0" class="lioneactivea">{{ link.title }}
+              <span class="right icon-down-arrow"></span>
+            </a>
             <ul class="vertical-menu_sub-submenu">
               {% for link in linklists[link.handle].links %}
               {% if linklists[link.handle] == empty %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
               {% else %}
-              <li class="sublink"><a data-no-instant href="{{ link.url }}" data-click-count="0"
-                  class="litwoactivea">{{ link.title }} <span class="right icon-down-arrow"></span></a>
+              <li class="sublink">
+                <a data-no-instant href="{{ link.url }}" data-click-count="0" class="litwoactivea">{{ link.title }}
+                  <span class="right icon-down-arrow"></span>
+                </a>
                 <ul class="vertical-menu_sub-submenu">
                   {% for link in linklists[link.handle].links %}
                   {% if linklists[link.handle] == empty %}
-                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  <li>
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
                   {% else %}
-                  <li class="sublink"><a data-no-instant href="{{ link.url }}" data-click-count="0"
-                      class="lithreeactivea">{{ link.title }} <span class="right icon-down-arrow"></span></a>
+                  <li class="sublink">
+                    <a data-no-instant href="{{ link.url }}" data-click-count="0"
+                      class="lithreeactivea">{{ link.title }}
+                      <span class="right icon-down-arrow"></span>
+                    </a>
                     <ul class="vertical-menu_sub-submenu">
                       {% for link in linklists[link.handle].links %}
-                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                      <li>
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                      </li>
                       {% endfor %}
                     </ul>
                   </li>
@@ -54,10 +77,8 @@
 
 
 
-
           <div class="headerHover__col headerHover__cat-banner">
-            <div class="headerHover__brands_banner">
-            </div>
+            <div class="headerHover__brands_banner"></div>
 
             <div class="headerHover__brands-wrap">
               <div class="headerHover__brands-wrap_container">
@@ -80,7 +101,8 @@
                     <a href="https://www.nilkamalfurniture.com/collections/dining-sets">Dining Sets</a>
                   </li>
                   <li>
-                    <a href="https://www.nilkamalfurniture.com/collections/recliners"> Recliners</a>
+                    <a href="https://www.nilkamalfurniture.com/collections/recliners">
+                      Recliners</a>
                   </li>
                   <li>
                     <a href="https://www.nilkamalfurniture.com/collections/sofa-cum-beds">Sofa cum Beds</a>
@@ -97,16 +119,30 @@
                   <li>
                     <a href="https://www.nilkamalfurniture.com/collections/wardrobes">Wardrobes</a>
                   </li>
-                  <li> <a href="https://www.nilkamalfurniture.com/collections/outdoor-furniture">Outdoor Furniture</a>
+                  <li>
+                    <a href="https://www.nilkamalfurniture.com/collections/outdoor-furniture">Outdoor Furniture</a>
                   </li>
-                  <li> <a href="https://www.nilkamalfurniture.com/collections/mattress">Mattresses</a> </li>
-                  <li> <a href="https://www.nilkamalfurniture.com/collections/study-tables">Study Tables</a> </li>
-                  <li><a href="https://www.nilkamalfurniture.com/collections/dining-room">Dining Room Furniture</a></li>
-                  <li><a href="https://www.nilkamalfurniture.com/collections/office-furniture">Office Furniture</a></li>
-                  <li><a href="https://www.nilkamalfurniture.com/collections/bedroom-furniture">Bed Room Furniture</a>
+                  <li>
+                    <a href="https://www.nilkamalfurniture.com/collections/mattress">Mattresses</a>
                   </li>
-                  <li><a href="https://www.nilkamalfurniture.com/collections/dining-tables">Dining Table Beds</a></li>
-                  <li><a href="https://www.nilkamalfurniture.com/collections/sofa-1">Sofas</a></li>
+                  <li>
+                    <a href="https://www.nilkamalfurniture.com/collections/study-tables">Study Tables</a>
+                  </li>
+                  <li>
+                    <a href="https://www.nilkamalfurniture.com/collections/dining-room">Dining Room Furniture</a>
+                  </li>
+                  <li>
+                    <a href="https://www.nilkamalfurniture.com/collections/office-furniture">Office Furniture</a>
+                  </li>
+                  <li>
+                    <a href="https://www.nilkamalfurniture.com/collections/bedroom-furniture">Bed Room Furniture</a>
+                  </li>
+                  <li>
+                    <a href="https://www.nilkamalfurniture.com/collections/dining-tables">Dining Table Beds</a>
+                  </li>
+                  <li>
+                    <a href="https://www.nilkamalfurniture.com/collections/sofa-1">Sofas</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -120,38 +156,46 @@
 
 
 
-
-
-
-
-
   </li>
   {% endif %}
   {% endfor %}
 
 
- <li class="custom__gamig sublink">
+
+  <li class="custom__gamig sublink">
     <a href="https://www.nilkamalfurniture.com/collections/fyrebird-gaming-chairs">Gaming Chair</a>
+    <span class="blink_me">NEW</span>
   </li>
+
+
+
 </div>
 
 <div class="megamenu_panel clearfix" id="meta-furniture" style="">
-  <div id="megamenu" class="megamenus">
-  </div>
+  <div id="megamenu" class="megamenus"></div>
 </div>
 
 
 <script>
   $('.vertical-menu .vertical-menu_submenu .vertical-menu_sub-submenu').each(function (i) {
-    $(this).attr('id', 'custom_ulactive' + (i + 1));
+    $(this).attr('id', 'custom_ulactive' + (
+      i + 1
+    ));
   });
 
   $('.vertical-menu .vertical-menu_submenu.newvermenu li a').each(function (i) {
-    $(this).attr('id', 'custom_liactive' + (i + 1));
+    $(this).attr('id', 'custom_liactive' + (
+      i + 1
+    ));
   });
 
   $('.vertical-menu .vertical-menu_submenu.newvermenu li a').each(function (i) {
-    $(this).attr('id', 'custom_liactive' + (i + 1));
+    $(this).attr('id', 'custom_liactive' + (
+      i + 1
+    ));
+    $(this).attr('data-liactive', 'liactive' + (
+      i + 1
+    ));
   });
 
   $(document).ready(function () {
@@ -165,8 +209,12 @@
 
   });
 
-  //$(".menu .vertical-menu li").hover.each(function (i) {
-  //$("#custom_ulactive"+(i+1)).css('visibility','visible');
-  //});
-
+// $(".menu .vertical-menu li").hover.each(function (i) {
+// $("#custom_ulactive"+(i+1)).css('visibility','visible');
+// });
+</script>
+<script>
+  $(document).ready(function () {
+    $('#custom_liactive512').append("<div class='new_badge_blink'><div class='blink_me_2 blink_me'>NEW</div></div>");
+    });
 </script>
